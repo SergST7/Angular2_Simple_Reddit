@@ -67,10 +67,10 @@
         <entry file="file://$PROJECT_DIR$/app.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
               <folding>
                 <element signature="e#1#61#0" expanded="true" />
-                <marker date="1487098785114" expanded="true" signature="260:304" ph="..." />
+                <marker date="1487101155451" expanded="true" signature="266:338" ph="..." />
               </folding>
             </state>
           </provider>
@@ -288,12 +288,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1487072095898</updated>
-      <workItem from="1487072098251" duration="13340000" />
+      <workItem from="1487072098251" duration="14356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13340000" />
+    <option name="totallyTimeSpent" value="14356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="738" extended-state="0" />
@@ -441,10 +441,10 @@
     <entry file="file://$PROJECT_DIR$/app.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
           <folding>
             <element signature="e#1#61#0" expanded="true" />
-            <marker date="1487098785114" expanded="true" signature="260:304" ph="..." />
+            <marker date="1487101155451" expanded="true" signature="266:338" ph="..." />
           </folding>
         </state>
       </provider>
