@@ -10,11 +10,18 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 @Component({
     selector: "hello-world",
     template: `<div>
-      <h1>Helo world</h1>
+      <h1>Helo {{ name }}</h1>
       </div>`
 })
 
-class HelloWorld{}
+class HelloWorld{
+    name: string;
+
+    constructor(){
+        this.name = "Felix"
+    }
+
+}
 
 @NgModule({
     declarations: [HelloWorld],
