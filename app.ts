@@ -1,11 +1,42 @@
-
 import {
     NgModule,
     Component
 } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import {BrowserModule} from "@angular/platform-browser";
+import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 
+
+// article component
+@Component({
+    selector: "reddit-article",
+    host: {
+        class: 'row'
+    },
+    template: `
+    <div>
+      <div>
+        <div>10</div>
+        <div>points</div>
+      </div> 
+      <div>
+        <a href="#">Title</a>
+          <ul>
+            <li>
+              <a href="#">
+                <i></i>upvote
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i></i>downvote
+              </a>
+            </li>
+          </ul>
+      </div>
+    </div>
+`
+})
+class ArticleComponent{};
 
 @Component({
     selector: "reddit",
@@ -25,11 +56,14 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
         (click)="addArticle(newTitle, newLink)">
         Submit add link
       </button>
-    </form>`
+    </form>
+    <div class="ui grid posts">
+      <reddit-article></reddit-article>
+    </div>
+`
 })
-
-class RedditApp{
-    addArticle(title: HTMLInputElement, link:HTMLInputElement): boolean{
+class RedditApp {
+    addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
         console.log(`Adding title ${title.value} and link ${link.value}`);
         return false
     }
@@ -37,10 +71,14 @@ class RedditApp{
 
 
 @NgModule({
-    declarations: [RedditApp],
+    declarations: [
+        RedditApp,
+        ArticleComponent
+    ],
     imports: [BrowserModule],
     bootstrap: [RedditApp]
 })
-class RedditAppModule{}
+class RedditAppModule {
+}
 
 platformBrowserDynamic().bootstrapModule(RedditAppModule);
