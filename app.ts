@@ -39,6 +39,7 @@ class Article{
 // article component
 @Component({
     selector: "reddit-article",
+    inputs: ['article'],
     host: {
         class: 'row'
     },
@@ -70,9 +71,9 @@ class ArticleComponent{
 
     article: Article;
 
-    constructor(){
-        this.article = new Article ("Angular 2", 'http://angular.io', 10);
-    }
+    // constructor(){
+    //     this.article = new Article ("Angular 2", 'http://angular.io', 10);
+    // }
 
     voteDown(): boolean{
         this.article.voteDown();
@@ -108,11 +109,25 @@ class ArticleComponent{
       </button>
     </form>
     <div class="ui grid posts">
-      <reddit-article></reddit-article>
+      <reddit-article  
+        *ngFor="let item of articlesMy"
+          [article]="item">
+      </reddit-article>
     </div>
 `
 })
 class RedditApp {
+
+    articlesMy: Article[];
+
+    constructor(){
+        this.articlesMy = [
+            new Article('Angular 2', 'http://angular.io', 3),
+            new Article('Fullstack', 'http://fullstack.io', 2),
+            new Article('Angular Homepage', 'http://angular.io', 1)
+        ]
+    }
+
     addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
         console.log(`Adding title ${title.value} and link ${link.value}`);
         return false
