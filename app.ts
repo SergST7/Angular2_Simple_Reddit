@@ -13,30 +13,51 @@ import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
         class: 'row'
     },
     template: `
-    <div>
-      <div>
-        <div>10</div>
-        <div>points</div>
-      </div> 
-      <div>
-        <a href="#">Title</a>
-          <ul>
-            <li>
-              <a href="#">
-                <i></i>upvote
+    <div class="four wide column votes center aligned">
+      <div class="ui statistic">
+        <div class="value">{{ votes }}</div>
+        <div class="label">points</div>
+      </div>
+    </div>
+    <div class="twelve wide column">
+        <a class="ui large header" href="{{ link }}">{{ title }}</a>
+          <ul class="ui big horizontal list voters">
+            <li class="item">
+              <a href (click)="voteUp()">
+                <i class="chevron up icon"></i>upvote
               </a>
             </li>
-            <li>
-              <a href="#">
-                <i></i>downvote
+            <li class="item">
+              <a href (click)="voteDown()">
+                <i class="chevron down icon"></i>downvote
               </a>
             </li>
           </ul>
-      </div>
     </div>
 `
 })
-class ArticleComponent{};
+class ArticleComponent{
+    votes: number;
+    title: string;
+    link: string;
+
+    constructor(){
+        this.votes = 10;
+        this.title = "Angular 2";
+        this.link =  'http://angular.io';
+    }
+
+    voteDown(){
+        this.votes--;
+        return false
+    }
+
+    voteUp(){
+        this.votes++;
+        return false
+    }
+
+};
 
 @Component({
     selector: "reddit",
