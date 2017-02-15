@@ -52,6 +52,7 @@ class Article{
     </div>
     <div class="twelve wide column">
         <a class="ui large header" href="{{ article.link }}">{{ article.title }}</a>
+        <div class="meta">( {{ article.domain() }} )</div>
           <ul class="ui big horizontal list voters">
             <li class="item">
               <a href (click)="voteUp()">
@@ -130,6 +131,9 @@ class RedditApp {
 
     addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
         console.log(`Adding title ${title.value} and link ${link.value}`);
+        this.articlesMy.push(new Article(title.value, link.value));
+        title.value = '';
+        link.value = '';
         return false
     }
 }
