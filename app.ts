@@ -6,6 +6,19 @@ import {BrowserModule} from "@angular/platform-browser";
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 
 
+class Article{
+
+    votes: number;
+    title: string;
+    link: string;
+
+    constructor(title: string, link: string, votes?: number){
+        this.title = title;
+        this.link = link;
+        this.votes = votes || 0;
+    }
+}
+
 // article component
 @Component({
     selector: "reddit-article",
@@ -15,12 +28,12 @@ import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
     template: `
     <div class="four wide column votes center aligned">
       <div class="ui statistic">
-        <div class="value">{{ votes }}</div>
+        <div class="value">{{ article.votes }}</div>
         <div class="label">points</div>
       </div>
     </div>
     <div class="twelve wide column">
-        <a class="ui large header" href="{{ link }}">{{ title }}</a>
+        <a class="ui large header" href="{{ article.link }}">{{ article.title }}</a>
           <ul class="ui big horizontal list voters">
             <li class="item">
               <a href (click)="voteUp()">
@@ -37,27 +50,26 @@ import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 `
 })
 class ArticleComponent{
-    votes: number;
-    title: string;
-    link: string;
+
+    article: Article;
 
     constructor(){
-        this.votes = 10;
-        this.title = "Angular 2";
-        this.link =  'http://angular.io';
+        this.article = new Article ("Angular 2", 'http://angular.io', 10);
     }
 
-    voteDown(){
-        this.votes--;
+    voteDown(): boolean{
+        this.article.votes--;
         return false
     }
 
-    voteUp(){
-        this.votes++;
+    voteUp(): boolean{
+        this.article.votes++;
         return false
     }
 
 };
+
+
 
 @Component({
     selector: "reddit",
